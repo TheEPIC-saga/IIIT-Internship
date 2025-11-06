@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['solar-panels']
+
+roboflow:
+  workspace: task2-gxakf
+  project: aerial-solar-panels-rjfpa
+  version: 1
+  license: Private
+  url: https://universe.roboflow.com/task2-gxakf/aerial-solar-panels-rjfpa/dataset/1
