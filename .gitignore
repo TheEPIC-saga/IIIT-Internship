@@ -1,0 +1,5 @@
+runs/
+datasets/
+*.pt
+*.mp4
+__pycache__/

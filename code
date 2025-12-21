@@ -1,0 +1,28 @@
+from ultralytics import YOLO
+
+def main():
+    # 1. Load the model
+    # Nano is fastest for urgent tasks
+    model = YOLO("yolo11n.pt")
+
+    # 2. Start training
+    # We set workers=0 if you are in a high-pressure rush, 
+    # as it avoids multiprocessing issues entirely on Windows.
+    results = model.train(
+        data="african-wildlife.yaml", 
+        epochs=25,
+        imgsz=640,
+        batch=16,
+        workers=2,  # Set to 0 if the error persists
+        name="wildlife_task"
+    )
+
+    # 3. Run inference
+    test_results = model("https://ultralytics.com/assets/african-wildlife-sample.jpg")
+    
+    for r in test_results:
+        r.show()
+
+if __name__ == '__main__':
+    # This line is the "Guard" that prevents the RuntimeError
+    main()
